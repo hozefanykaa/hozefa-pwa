@@ -1,15 +1,15 @@
 console.log('sw');
 
-const STATIC_CACHE = "1.2";
-const DYNAMIC_CACHE = "1.2";
+const STATIC_CACHE = "1.9";
+//const DYNAMIC_CACHE = "1.2";
 
 var urlsToCache = [
     '/',
     '/index.html',
-    '/dist/main.css',
-    '/dist/bundle.js',
+    '/resources/style/main.css',
     '/resources/scripts/script.js',
-    '/offline.html'
+    '/resources/images/',
+    'offline.html'
   ];
 
 self.addEventListener('install', (event) => {
@@ -22,8 +22,8 @@ self.addEventListener('install', (event) => {
     )
 })
 
-/* getting the pages up offline 
-self.addEventListener('fetch',(event) => {
+/* getting the pages up offline */ 
+/*self.addEventListener('fetch',(event) => {
     event.respondWith(
         caches.match(event.request)
         .then((response)=> {
@@ -33,11 +33,11 @@ self.addEventListener('fetch',(event) => {
             return fetch(event.request);
         })
     )
-})
-*/
+})*/
 
-/* offline page 
-self.addEventListener('fetch',(event) => {
+
+/* offline page */
+/*self.addEventListener('fetch',(event) => {
     event.respondWith(
         caches.match(event.request)
         .then((response)=> {
@@ -57,8 +57,8 @@ self.addEventListener('fetch',(event) => {
           })
         })
     )
-})
-*/
+})*/
+
 self.addEventListener('fetch', function(e) {
     var request = e.request;
       e.respondWith(
